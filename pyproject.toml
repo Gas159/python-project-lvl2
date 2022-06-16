@@ -3,10 +3,10 @@ name = "hexlet-code"
 version = "0.1.0"
 description = "lvl 2 project"
 authors = ["gas <pankot222@gmail.com>"]
+#packages = [{ include = "gendiff" }, ]
 
-#[tool.poetry.scripts]
-#packages = [
-#    {include = "gendiff"}, ]
+[tool.poetry.scripts]
+
 
 [tool.poetry.dependencies]
 python = "^3.8"
