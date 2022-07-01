@@ -4,5 +4,5 @@ install:
 build:
 	poetry build
 
-run:
-	poetry run gendiff
+lint:
+	poetry run flake8 gendiff

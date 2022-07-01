@@ -9,9 +9,9 @@ def read_path(file_path):
     return json.load(open(file_path))
     # print('Read path\n',first_file)
 
-def make_row(dictionary,key,operator=" "):
-    return f'    {operator} {key} : {dictionary.get(key)}\n'
 
+def make_row(dictionary, key, operator=" "):
+    return f'    1{operator} {key} : {dictionary.get(key)}\n'
 
 
 def generate_diff(source1, source2):
@@ -30,23 +30,21 @@ def generate_diff(source1, source2):
     for key in array_sorted:
         if key in common:
             if first.get(key) == second.get(key):
-                result+= make_row(first,key)
+                result += make_row(first, key)
             else:
-                result+= make_row(first,key,"-")
-                result+= make_row(second,key,"+")
+                result += make_row(first, key, "-")
+                result += make_row(second, key, "+")
         elif key in only_first:
-            result+= make_row(first,key,'-')
+            result += make_row(first, key, '-')
         else:
-            result+= make_row(second,key,'+')
-    result+='}'
+            result += make_row(second, key, '+')
+    result += '}'
     return print(result)
-
-
-
-
 
 # '/home/gastello/python-project-lvl2/gendiff/test/fixtures/file1.json'
 
 # q = generate_diff('/home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json',
 #                   '/home/gastello/python-project-lvl2/gendiff/tests'
 #                   '/fixtures/file2.json')
+# poetry run gendiff /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
+#  /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file2.json
