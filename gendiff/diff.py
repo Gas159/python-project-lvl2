@@ -1,10 +1,10 @@
 import json
-import os
+# import os
 
 
 def read_path(file_path):
-    q = os.path.basename(file_path)
-    w = os.path.abspath(file_path)
+    # q = os.path.basename(file_path)
+    # w = os.path.abspath(file_path)
     # print(q, w)
     return json.load(open(file_path))
     # print('Read path\n',first_file)
@@ -43,8 +43,9 @@ def generate_diff(source1, source2):
 
 # '/home/gastello/python-project-lvl2/gendiff/test/fixtures/file1.json'
 
-# q = generate_diff('/home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json',
-#                   '/home/gastello/python-project-lvl2/gendiff/tests'
+# q = generate_diff('/home/gastello/python-project-lvl2/gendiff/tests/fixtures
+# /file1.json',/home/gastello/python-project-lvl2/gendiff/tests'
 #                   '/fixtures/file2.json')
-# poetry run gendiff /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
-#  /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file2.json
+# poetry run gendiff
+# /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
+# /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file2.json

@@ -9,4 +9,4 @@ coverage.xml
 .pytest_cache/
 .vim
 .idea
-test_f
+test_f.py
