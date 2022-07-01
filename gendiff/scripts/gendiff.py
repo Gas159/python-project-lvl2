@@ -20,6 +20,6 @@ def main():
     # summ(args.first11_file, args.second_file)
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 # poetry run python -m gendiff.scripts.gendiff
