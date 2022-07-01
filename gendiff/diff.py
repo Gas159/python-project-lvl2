@@ -11,7 +11,7 @@ def read_path(file_path):
 
 
 def make_row(dictionary, key, operator=" "):
-    return f'    {operator} {key} : {dictionary.get(key)}\n'
+    return f'    {operator} {key} : {str(dictionary.get(key)).lower()}\n'
 
 
 def generate_diff(source1, source2):
@@ -39,7 +39,7 @@ def generate_diff(source1, source2):
         else:
             result += make_row(second, key, '+')
     result += '}'
-    # return print(result)
+    return print(result)
 
 # '/home/gastello/python-project-lvl2/gendiff/test/fixtures/file1.json'
 
