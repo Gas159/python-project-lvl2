@@ -1,4 +1,4 @@
-name: test1
+name: test2
 
 on:
   - push
@@ -23,11 +23,11 @@ jobs:
           make install
       - name: Run linter and pytest
         run: |
-          make check
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v2.7.4
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make test-coverage
-          debug: true
+          make test
+#      - name: Test & publish code coverage
+#        uses: paambaati/codeclimate-action@v2.7.4
+#        env:
+#          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+#        with:
+#          coverageCommand: make test-coverage
+#          debug: true
