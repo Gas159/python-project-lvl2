@@ -14,6 +14,8 @@ test:
 	poetry run pytest -v
 test_cov:
 	poetry run pytest --cov=gendiff tests/ --cov-report xml
+test1_cov:
+	poetry run pytest --cov=gendiff
 
 
 fast-check:
