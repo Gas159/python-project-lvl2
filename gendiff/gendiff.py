@@ -46,14 +46,14 @@ def generate_diff(source1, source2):
         else:
             result += make_row(second, key, '+')
     result += '}'
-    print(result)
+    # print(result)
     return result
 
 # '/home/gastello/python-project-lvl2/gendiff/test/fixtures/file1.json'
 
-# q = generate_diff(
-#     '/home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json',
-# '/home/gastello/python-project-lvl2/gendiff/tests/fixtures/file2.json')
+q = generate_diff('/home/gastello/python-project-lvl2/tests/fixtures/file1'
+                  '.json',
+                  '/home/gastello/python-project-lvl2/tests/fixtures/file2.json')
 
 # poetry run gendiff
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json

@@ -10,3 +10,5 @@ coverage.xml
 .vim
 .idea
 test_f.py
+.coverage
+coverage.xml

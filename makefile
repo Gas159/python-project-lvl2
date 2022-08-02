@@ -13,7 +13,7 @@ lint:
 test:
 	poetry run pytest -v
 test_cov:
-	poetry run pytest --cov=gendiff
+	poetry run pytest --cov=gendiff tests/ --cov-report xml
 
 
 fast-check:
