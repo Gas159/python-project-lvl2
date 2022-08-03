@@ -68,9 +68,9 @@ def generate_diff(source1, source2):
 #     '/home/gastello/python-project-lvl2/tests/fixtures/file1.json',
 #     '/home/gastello/python-project-lvl2/tests/fixtures/file2.json')
 
-q = generate_diff(
-    '/home/gastello/python-project-lvl2/tests/fixtures/file1.yaml',
-    '/home/gastello/python-project-lvl2/tests/fixtures/file2.yaml')
+# q = generate_diff(
+#     '/home/gastello/python-project-lvl2/tests/fixtures/file1.yaml',
+#     '/home/gastello/python-project-lvl2/tests/fixtures/file2.yaml')
 
 # poetry run gendiff
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
