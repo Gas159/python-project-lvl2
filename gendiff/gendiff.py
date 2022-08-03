@@ -1,19 +1,31 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 import json
-import os
-import pathlib
+
+from pathlib import Path
+
+import yaml
 
 
 def read_path(file_path):
-    q = os.path.basename(file_path)
-    w = os.path.abspath(q)
-    print(w, '===== it is abspath')
-    print(q, ' ====== it is basename')
+    # q = os.path.basename(file_path)
+    # w = os.path.abspath(file_path)
+    extension = Path(file_path).suffix
+    # t = Path(Path.home(), file_path)
+    # print(w, '===== it is abspath')
+    # print(q, ' ====== it is basename')
+    print('extension', extension, sep='\n', end='\n\n')
+    # print(extension)
+    # print(e.suffix)
+    # print(t)
     # json.load(open('path/to/file.json'))
     # return json.load(open(file_path))
-    path = pathlib.Path(__file__)
-    return path
-    # print('Read path\n',first_file)
+    # path = Path(__file__)
+    # print(path)
+    # file = open(file_path)
+    if extension == '.json':
+        return json.load(open(file_path))
+    elif extension == '.yaml' or extension == '.yml':
+        return yaml.safe_load(open(file_path))
 
 
 def make_row(dictionary, key, operator=" "):
@@ -21,10 +33,10 @@ def make_row(dictionary, key, operator=" "):
 
 
 def generate_diff(source1, source2):
-    first = json.load(open(source1))
-    second = json.load(open(source2))
-    # second = read_path(source2)
-    print('it"s first', first, second, sep="\n", end='\n\n')
+    first = read_path(source1)
+    second = read_path(source2)
+
+    print('it"s first', first, second, type(first), sep="\n", end='\n\n')
 
     common = first.keys() & second.keys()
     only_first = set(first) - set(second)
@@ -55,6 +67,10 @@ def generate_diff(source1, source2):
 # q = generate_diff(
 #     '/home/gastello/python-project-lvl2/tests/fixtures/file1.json',
 #     '/home/gastello/python-project-lvl2/tests/fixtures/file2.json')
+
+q = generate_diff(
+    '/home/gastello/python-project-lvl2/tests/fixtures/file1.yaml',
+    '/home/gastello/python-project-lvl2/tests/fixtures/file2.yaml')
 
 # poetry run gendiff
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json

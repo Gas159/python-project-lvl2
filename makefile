@@ -11,19 +11,19 @@ patch1:
 lint:
 	poetry run flake8 gendiff
 test:
-	poetry run pytest -v
+	poetry run pytest
 test_cov:
 	poetry run pytest --cov=gendiff tests/ --cov-report xml
 test1_cov:
 	poetry run pytest --cov=gendiff
 
 
-fast-check:
+fast-check: # -s print -v\-vv verbose
 	poetry install
 	poetry build
-	python -m pip install --user --force-reinstall dist/*.whl
+	python3 -m pip install --user --force-reinstall dist/*.whl
 	poetry run flake8 gendiff
-	poetry run pytest -s
+	poetry run pytest
 	poetry run pytest --cov=gendiff
 
 fast-check1:

@@ -10,9 +10,16 @@ def test_generate_diff_good():
     # print('!!!!!!!!!!!!!!!!!!! ...........',simply)
     assert generate_diff('tests/fixtures/file1.json',
                          'tests/fixtures/file2.json') == simply
+    assert generate_diff('tests/fixtures/file1.yaml',
+                         'tests/fixtures/file2.yaml') == simply
+
+
+
 def test_generate_diff_type():
     assert isinstance( generate_diff('tests/fixtures/file1.json',
                          'tests/fixtures/file2.json'), str), '!!!!'
+
+
 # def test_gendiff():
 #     simply = open('tests/fixtures/result_json').read()
 #     print('!!!!!!!!!!!!!!!!!!! ...........', simply)
