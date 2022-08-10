@@ -12,3 +12,8 @@ coverage.xml
 test_f.py
 .coverage
 coverage.xml
+my_test_file.py
+sw_templates.yaml
+tests/my_test.py
+bar.py
+foo.py
