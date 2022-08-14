@@ -23,7 +23,7 @@ fast-check: # -s print -v\-vv verbose
 	poetry build
 	python3 -m pip install --user --force-reinstall dist/*.whl
 	poetry run flake8 gendiff
-	poetry run pytest
+	poetry run pytest -vv
 	poetry run pytest --cov=gendiff
 
 fast-check1:
