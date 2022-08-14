@@ -43,10 +43,13 @@ def make_tree(data1: dict, data2: dict) -> dict:
     result = {}
     set1 = set(data1)
     set2 = set(data2)
+    com_keys = set(set1 & set2)
+    print(com_keys)
     add_keys = set(set2 - set1)
     del_keys = set(set1 - set2)
 
-    for key in sorted(set1 | set2):
+    # for key in sorted(set1 | set2):
+    for key in com_keys:
         if key in add_keys:
             result[key] = {'type': 'added', 'value': data2.get(key)}
 
