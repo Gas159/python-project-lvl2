@@ -7,7 +7,7 @@ CHANGED = '    '
 COMMON = '    '
 
 # flake8: noqa: C901
-def to_stylish(diff_tree, format='stylish', replacer='    '):
+def stylish(diff_tree, replacer='    '):
     def iter(data, depth):
         lines = []
         res = ''
@@ -23,7 +23,7 @@ def to_stylish(diff_tree, format='stylish', replacer='    '):
                     val, dict) else lines.append(
                     f"{cur}{UNCHANGED}{key}: {iter(val, depth + 1)}")
 
-            elif "type" in val and val.get("type") == "added":
+            elif val.get("type") == "added":
                 # print("added", key, val)
                 lines.append(
                     f"{indent}{ADD}{key}: {cor(val.get('value'))}") \
@@ -31,7 +31,7 @@ def to_stylish(diff_tree, format='stylish', replacer='    '):
                     val.get('value'), dict) else lines.append(
                     f"{cur}{ADD}{key}: {iter(val.get('value'), depth + 1)}")
 
-            elif "type" in val and val.get("type") == "deleted":
+            elif val.get("type") == "deleted":
                 # print("added", key, val)
                 lines.append(
                     f"{indent}{DELETED}{key}: {cor(val.get('value'))}") if not \
@@ -39,7 +39,7 @@ def to_stylish(diff_tree, format='stylish', replacer='    '):
                         val.get('value'), dict) else lines.append(
                     f"{cur}{DELETED}{key}: {iter(val.get('value'), depth + 1)}")
 
-            elif "type" in val and val.get("type") == "unchanged":
+            elif  val.get("type") == "unchanged":
                 # print("added", key, val)
                 lines.append(
                     f"{indent}{UNCHANGED}{key}: {cor(val.get('value'))}") \
@@ -47,7 +47,7 @@ def to_stylish(diff_tree, format='stylish', replacer='    '):
                     val.get('value'), dict) else lines.append(
                     f"{cur}{DELETED}{key}: {iter(val.get('value'), depth + 1)}")
 
-            elif "type" in val and val.get("type") == "changed":
+            elif val.get("type") == "changed":
                 lines.append(
                     f"{indent}{DELETED}{key}: {cor(val.get('value1'))}") if \
                     not isinstance(val.get('value1'), dict) else lines.append(
@@ -61,10 +61,11 @@ def to_stylish(diff_tree, format='stylish', replacer='    '):
                     f"{cur}{ADD}{key}: "
                     f"{iter(val.get('value2'), depth + 1)}")
 
-            elif "type" in val and val.get("type") == "nested":
+            elif val.get("type") == "nested":
                 lines.append(f"{indent}{COMMON}{key}: {cor(val)}") if not \
                     isinstance(val, dict) else lines.append(
-                    f"{cur}{COMMON}{key}: {iter(val.get('value'), depth + 1)}")
+                    f"{cur}{COMMON}{key}: "
+                    f"{iter(val.get('children'), depth + 1)}")
 
         res = chain('{', lines, [indent + '}'])
         return '\n'.join(res)
