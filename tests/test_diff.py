@@ -1,7 +1,7 @@
 from gendiff import generate_diff
 
 def test_generate_diff():
-    simply = open('tests/fixtures/result_json').read()
+    simply = open('tests/fixtures/result_simply_json').read()
     # print('!!!!!!!!!!!!!!!!!!! ...........',simply)
     assert generate_diff('tests/fixtures/file1.json',
                          'tests/fixtures/file2.json') == simply
@@ -11,15 +11,23 @@ def test_generate_diff():
 
 def test_generate_diff_type():
     assert isinstance( generate_diff('tests/fixtures/file1.json',
-                         'tests/fixtures/file2.json'), str), '!!!!'
+                         'tests/fixtures/file2.json'), str)
 
-def test_generate_diff_recursive():
+def test_generate_diff_recursive_stylish():
     stylish = open('tests/fixtures/result_stylish').read()
     # print('!!!!!!!!!!!!!!!!!!! ...........',simply)
     assert generate_diff('tests/fixtures/recur_file1.json',
                          'tests/fixtures/recur_file2.json') == stylish
     assert generate_diff('tests/fixtures/recur_file1.yaml',
                          'tests/fixtures/recur_file2.yaml') == stylish
+
+def test_generate_diff_recursive_plain():
+    plain = open('tests/fixtures/result_plain').read()
+
+    assert generate_diff('tests/fixtures/recur_file1.json',
+                         'tests/fixtures/recur_file2.json') == plain
+    assert generate_diff('tests/fixtures/recur_file1.yaml',
+                         'tests/fixtures/recur_file2.yaml') == plain
 
 
 

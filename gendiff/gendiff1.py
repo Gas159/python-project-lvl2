@@ -15,6 +15,7 @@ def generate_diff(source1, source2, format='stylish'):
         return stylish(tree)
     # if format == 'plain':
     #     return plain(tree)
+    return tree
 
 
 def read_path(file_path):
@@ -39,17 +40,16 @@ def read_path(file_path):
         return yaml.safe_load(open(file_path))
 
 
-def make_tree(data1: dict, data2: dict) -> dict:
+def make_tree(data1: dict, data2: dict) -> dict: # noqa 901
     result = {}
     set1 = set(data1)
     set2 = set(data2)
-    com_keys = set(set1 & set2)
-    print(com_keys)
+    # com_keys = set(set1 & set2)
+    # print(com_keys)
     add_keys = set(set2 - set1)
     del_keys = set(set1 - set2)
 
-    # for key in sorted(set1 | set2):
-    for key in com_keys:
+    for key in set1 | set2:
         if key in add_keys:
             result[key] = {'type': 'added', 'value': data2.get(key)}
 
@@ -59,8 +59,10 @@ def make_tree(data1: dict, data2: dict) -> dict:
         else:
             if isinstance(data1.get(key), dict) and isinstance(data2.get(
                     key), dict):
-                result[key] = {'type': 'nested', 'children': make_tree(
-                    data1.get(key), data2.get(key))}
+                result[key] = {
+                    'type': 'nested',
+                    'children': make_tree(data1.get(key), data2.get(key))
+                }
 
             elif data1.get(key) == data2.get(key):
                 result[key] = {'type': 'unchanged', 'value': data1.get(key)}
@@ -82,12 +84,12 @@ def make_tree(data1: dict, data2: dict) -> dict:
 # '/home/gastello/python-project-lvl2/tests/fixtures/file2.yaml')
 # print(q)
 
-# q = generate_diff(
-#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.json',
-#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.json')
-# # print('\n\n')
-# # print(type(q), q)
-# print(q)
+q = generate_diff(
+    '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.json',
+    '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.json')
+# print('\n\n')
+# print(type(q), q)
+print(q)
 
 # poetry run gendiff
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
