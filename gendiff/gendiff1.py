@@ -105,7 +105,7 @@ def make_tree(data1: dict, data2: dict) -> dict:
 # q = generate_diff(
 #     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.yaml',
 #     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.yaml',
-#     "json")
+#     "plain")
 # # print('\n\n')
 # # print(type(q), q)
 # print(q)
