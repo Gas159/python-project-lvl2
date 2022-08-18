@@ -73,8 +73,8 @@ def check_type(item: any) -> str:
     if isinstance(item, dict):
         return '[complex value]'
     elif type(item) is bool or item is None:
-        q = json.dumps(item)
-        # print('q -->', q, item)
-        return q
-    else:
+        return json.dumps(item)
+    elif isinstance(item, str):
         return f"'{item}'"
+    else:
+        return str(item)
