@@ -4,6 +4,7 @@ from pathlib import Path
 import yaml
 from pprint import pprint  # noqa
 
+from gendiff.formaters.json import to_json
 from gendiff.formaters.plain import plain
 from gendiff.formaters.stylish import stylish
 
@@ -16,6 +17,10 @@ def generate_diff(source1, source2, format='stylish'):
         return stylish(tree)
     elif format == 'plain':
         return plain(tree)
+    elif format == 'json':
+        return to_json(tree)
+    else:
+        return tree
 
 
 def read_path(file_path):
@@ -96,11 +101,11 @@ def make_tree(data1: dict, data2: dict) -> dict:
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file2.json
 #
-#
+# #
 # q = generate_diff(
 #     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.yaml',
 #     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.yaml',
-#     "plain")
+#     "json")
 # # print('\n\n')
 # # print(type(q), q)
 # print(q)

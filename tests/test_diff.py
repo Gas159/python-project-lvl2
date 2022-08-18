@@ -29,6 +29,14 @@ def test_generate_diff_recursive_plain():
     assert generate_diff('tests/fixtures/recur_file1.yaml',
                          'tests/fixtures/recur_file2.yaml', 'plain') == plain
 
+def test_generate_diff_recursive_json():
+    json = open('tests/fixtures/result_recur_json').read()
+
+    assert generate_diff('tests/fixtures/recur_file1.json',
+                         'tests/fixtures/recur_file2.json', 'json') == json
+    assert generate_diff('tests/fixtures/recur_file1.yaml',
+                         'tests/fixtures/recur_file2.yaml', 'json') == json
+
 
 
 

@@ -1,10 +1,11 @@
 import json
 
+
 # data = {
-#     'group2': {'type': 'deleted', 'value': {'abc': 12345, 'deep': {'id': 45}}},
+#     'group2': {'type': 'deleted', 'value':{'abc': 12345, 'deep': {'id': 45}}},
 #     'group1': {'type': 'nested', 'children': {
 #         'nest': {'type': 'changed', 'value1': {'key': 'value'},
-#                  'value2': 'str'}, 'foo': {'type': 'unchanged', 'value': 'bar'},
+#                  'value2': 'str'}, 'foo': {'type': 'unchanged','value':'bar'},
 #         'baz': {'type': 'changed', 'value1': 'bas', 'value2': 'bars'}}},
 #     'group3': {'type': 'added',
 #                'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}},
@@ -31,6 +32,7 @@ import json
 def plain(diff_tree: dict) -> str:
     result = make_row(diff_tree)
     return '\n'.join(result)
+
 
 # flake8: noqa: 901
 def make_row(data: dict, parent_key="") -> list:
