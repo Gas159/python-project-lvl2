@@ -4,6 +4,7 @@ from pathlib import Path
 import yaml
 from pprint import pprint  # noqa
 
+from gendiff.formaters.plain import plain
 from gendiff.formaters.stylish import stylish
 
 
@@ -13,15 +14,14 @@ def generate_diff(source1, source2, format='stylish'):
     tree = make_tree(first, second)
     if format == 'stylish':
         return stylish(tree)
-    # if format == 'plain':
-    #     return plain(tree)
-    return tree
+    elif format == 'plain':
+        return plain(tree)
 
 
 def read_path(file_path):
     # q = os.path.basename(file_path)
     # w = os.path.abspath(file_path)
-    extension = Path(file_path).suffix
+
     # t = Path(Path.home(), file_path)
     # print(w, '===== it is abspath')
     # print(q, ' ====== it is basename')
@@ -34,13 +34,14 @@ def read_path(file_path):
     # path = Path(__file__)
     # print(path)
     # file = open(file_path)
+    extension = Path(file_path).suffix
     if extension == '.json':
         return json.load(open(file_path))
     elif extension == '.yaml' or extension == '.yml':
         return yaml.safe_load(open(file_path))
 
 
-def make_tree(data1: dict, data2: dict) -> dict: # noqa 901
+def make_tree(data1: dict, data2: dict) -> dict:
     result = {}
     set1 = set(data1)
     set2 = set(data2)
@@ -84,13 +85,22 @@ def make_tree(data1: dict, data2: dict) -> dict: # noqa 901
 # '/home/gastello/python-project-lvl2/tests/fixtures/file2.yaml')
 # print(q)
 
-q = generate_diff(
-    '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.json',
-    '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.json')
-# print('\n\n')
-# print(type(q), q)
-print(q)
+# q = generate_diff(
+#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.json',
+#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.json')
+# # print('\n\n')
+# # print(type(q), q)
+# print(q)
 
 # poetry run gendiff
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file2.json
+#
+#
+# q = generate_diff(
+#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.yaml',
+#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.yaml',
+#     "plain")
+# # print('\n\n')
+# # print(type(q), q)
+# print(q)

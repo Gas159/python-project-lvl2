@@ -17,3 +17,5 @@ sw_templates.yaml
 tests/my_test.py
 bar.py
 foo.py
+bazz.*
+

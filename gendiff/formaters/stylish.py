@@ -6,9 +6,8 @@ UNCHANGED = '    '
 CHANGED = '    '
 COMMON = '    '
 
-
 # flake8: noqa: C901
-def stylish(diff_tree, replacer='    '):  # noqa
+def stylish(diff_tree, replacer='    '):
     def iter(data, depth):
         lines = []
         res = ''
