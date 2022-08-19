@@ -5,7 +5,7 @@ from gendiff.parse_args import parse
 
 def main():
     args = parse()
-    print('this is args -->>', args)
+    # print('this is args -->>', args)
     diff = generate_diff(args.first_file, args.second_file, args.format)
     print(diff)
     # def summ(a,b):
