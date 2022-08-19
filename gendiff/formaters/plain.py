@@ -77,4 +77,4 @@ def check_type(item: any) -> str:
     elif isinstance(item, str):
         return f"'{item}'"
     else:
-        return str(item)
+        return item
