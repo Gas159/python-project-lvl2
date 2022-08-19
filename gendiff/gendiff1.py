@@ -24,21 +24,6 @@ def generate_diff(source1, source2, format='stylish'):
 
 
 def read_path(file_path):
-    # q = os.path.basename(file_path)
-    # w = os.path.abspath(file_path)
-
-    # t = Path(Path.home(), file_path)
-    # print(w, '===== it is abspath')
-    # print(q, ' ====== it is basename')
-    # print('extension', extension, sep='\n', end='\n\n')
-    # print(extension)
-    # print(e.suffix)
-    # print(t)
-    # json.load(open('path/to/file.json'))
-    # return json.load(open(file_path))
-    # path = Path(__file__)
-    # print(path)
-    # file = open(file_path)
     extension = Path(file_path).suffix
     if extension == '.json':
         return json.load(open(file_path))
@@ -80,10 +65,11 @@ def make_tree(data1: dict, data2: dict) -> dict:
     return result
 
 # '/home/gastello/python-project-lvl2/gendiff/test/fixtures/file1.json'
-
+#
 # q = generate_diff(
 #     '/home/gastello/python-project-lvl2/tests/fixtures/file1.json',
-#     '/home/gastello/python-project-lvl2/tests/fixtures/file2.json')
+#     '/home/gastello/python-project-lvl2/tests/fixtures/file2.json', plain)
+# print(q)
 #
 # q =generate_diff(
 # '/home/gastello/python-project-lvl2/tests/fixtures/file1.yaml',
@@ -100,7 +86,7 @@ def make_tree(data1: dict, data2: dict) -> dict:
 # poetry run gendiff
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
 # /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file2.json
-#
+# #
 # #
 # q = generate_diff(
 #     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.yaml',
