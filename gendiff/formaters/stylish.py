@@ -13,10 +13,10 @@ def stylish(diff_tree, depth=0, replacer='    '):
     lines = []
     res = ''
     indent = depth * replacer
-    print('begin', diff_tree, indent, type(indent))
+    # print('begin', diff_tree, indent, type(indent))
 
     for key, val in sorted(diff_tree.items()):
-        print("key and value -->", key, val, indent)
+        # print("key and value -->", key, val, indent)
         # if not isinstance(val, dict) or "type" not in val:
         #     # print('clear -- >', key, val)
         #     lines.append(f"{indent}{UNCHANGED}{key}: {cor(val)}") \
@@ -83,12 +83,12 @@ def stylish(diff_tree, depth=0, replacer='    '):
             #     f"{indent}{COMMON}{key}: "
             #     f"{stylish(val.get('children'), depth + 1)}")
 
-    print('it\'s res', res, type(res), lines, indent, type(indent))
+    # print('it\'s res', res, type(res), lines, indent, type(indent))
     res = chain('{', lines, [indent + '}'])
     return '\n'.join(res)
 
 
-def cor(item):
+def convert(item):
     if str(item) == "True":
         return "true"
     elif str(item) == 'None':
@@ -100,10 +100,9 @@ def cor(item):
 
 
 def make_row(indent, key, value, types='', depth=0):
-    print(key, value, type(value), types)
-    lines = []
-    res = ''
-    return f'{indent}{types}{key}: {cor(value)}' \
+    # print(key, value, type(value), types)
+
+    return f'{indent}{types}{key}: {convert(value)}' \
         if not isinstance(value, dict) \
         else f"{indent}{types}{key}: {stylish(value, depth + 1)}"
 
