@@ -109,29 +109,29 @@ def make_row(indent, key, value, types='', depth=0):
 
 # data = {'group3': {'type': 'added',
 #                    'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}}}
-data = {"1": "one", "2": "True", "3": {"4": "four", "5": "five"}}
-data = {
-    'group2': {'type': 'deleted', 'value': {'abc': 12345, 'deep': {'id': 45}}},
-    'group1': {'type': 'nested', 'children': {
-        'nest': {'type': 'changed', 'value1': {'key': 'value'},
-                 'value2': 'str'}, 'foo': {'type': 'unchanged', 'value': 'bar'},
-        'baz': {'type': 'changed', 'value1': 'bas', 'value2': 'bars'}}},
-    'group3': {'type': 'added',
-               'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}},
-    'common': {'type': 'nested', 'children': {
-        'setting3': {'type': 'changed', 'value1': True, 'value2': None},
-        'setting2': {'type': 'deleted', 'value': 200},
-        'setting4': {'type': 'added', 'value': 'blah blah'},
-        'setting5': {'type': 'added', 'value': {'key5': 'value5'}},
-        'follow': {'type': 'added', 'value': False},
-        'setting1': {'type': 'unchanged', 'value': 'Value 1'},
-        'setting6': {'type': 'nested',
-                     'children': {'ops': {'type': 'added', 'value': 'vops'},
-                                  'key': {'type': 'unchanged',
-                                          'value': 'value'},
-                                  'doge': {'type': 'nested', 'children': {
-                                      'wow': {'type': 'changed', 'value1': '',
-                                              'value2': 'so much'}}}}}}}}
-q = stylish(data)
-#
-print(q)
+# data = {"1": "one", "2": "True", "3": {"4": "four", "5": "five"}}
+# data = {
+#     'group2': {'type': 'deleted', 'value': {'abc': 12345, 'deep': {'id': 45}}},
+#     'group1': {'type': 'nested', 'children': {
+#         'nest': {'type': 'changed', 'value1': {'key': 'value'},
+#                  'value2': 'str'}, 'foo': {'type': 'unchanged', 'value': 'bar'},
+#         'baz': {'type': 'changed', 'value1': 'bas', 'value2': 'bars'}}},
+#     'group3': {'type': 'added',
+#                'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}},
+#     'common': {'type': 'nested', 'children': {
+#         'setting3': {'type': 'changed', 'value1': True, 'value2': None},
+#         'setting2': {'type': 'deleted', 'value': 200},
+#         'setting4': {'type': 'added', 'value': 'blah blah'},
+#         'setting5': {'type': 'added', 'value': {'key5': 'value5'}},
+#         'follow': {'type': 'added', 'value': False},
+#         'setting1': {'type': 'unchanged', 'value': 'Value 1'},
+#         'setting6': {'type': 'nested',
+#                      'children': {'ops': {'type': 'added', 'value': 'vops'},
+#                                   'key': {'type': 'unchanged',
+#                                           'value': 'value'},
+#                                   'doge': {'type': 'nested', 'children': {
+#                                       'wow': {'type': 'changed', 'value1': '',
+#                                               'value2': 'so much'}}}}}}}}
+# q = stylish(data)
+# #
+# print(q)
