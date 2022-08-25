@@ -9,12 +9,9 @@
 
 
 ## Installation:
-
-
 ```
 $ pip install --user git+https://github.com/Gas159/python-project-lvl2.git
 ```
-
 <hr/>
 
 
