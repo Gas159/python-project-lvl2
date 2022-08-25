@@ -7,7 +7,9 @@
 
 <hr/><hr/>
 
-##Installation:
+
+## Installation:
+
 
 ```
 $ pip install --user git+https://github.com/Gas159/python-project-lvl2.git
@@ -17,17 +19,24 @@ $ pip install --user git+https://github.com/Gas159/python-project-lvl2.git
 
 ###Flat diff (json):
 
+
 https://asciinema.org/a/QX73jQPihakaU9lIRlfkrvCZo
+
 
 ###Flat diff (yaml or yml):
 
+
 https://asciinema.org/a/5db67Vghj55M2XajizOCaJQYA
+
 
 ###Stylish recirsive files diff (json):
 
+
 https://asciinema.org/a/zJwXxq6UlXLiZi7W0cjSfnQYt
 
+
 ###Flat recursive files diff (yaml or yml):
+
 
 https://asciinema.org/a/mulsEh1pLD9IXbV3c0d7B2RN6
 
