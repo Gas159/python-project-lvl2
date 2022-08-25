@@ -18,4 +18,4 @@ tests/my_test.py
 bar.py
 foo.py
 bazz.*
-
+test-coverage-tool
