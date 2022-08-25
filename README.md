@@ -30,7 +30,7 @@ https://asciinema.org/a/QX73jQPihakaU9lIRlfkrvCZo
 https://asciinema.org/a/5db67Vghj55M2XajizOCaJQYA
 
 
-### Stylish recirsive files diff (json):
+### Stylish recursive files diff (json):
 
 
 https://asciinema.org/a/zJwXxq6UlXLiZi7W0cjSfnQYt
@@ -41,7 +41,7 @@ https://asciinema.org/a/zJwXxq6UlXLiZi7W0cjSfnQYt
 
 https://asciinema.org/a/mulsEh1pLD9IXbV3c0d7B2RN6
 
-### Json recirsive files diff (json):
+### Json recursive files diff (json):
 
 [![asciicast](https://asciinema.org/a/yjGZ41oSU8Y8YJcjcWUOTUAiv.svg)](https://asciinema.org/a/yjGZ41oSU8Y8YJcjcWUOTUAiv)
 
