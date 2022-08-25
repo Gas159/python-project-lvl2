@@ -9,23 +9,17 @@
 
 
 ## Installation:
-
-
 ```
 $ pip install --user git+https://github.com/Gas159/python-project-lvl2.git
 ```
-
 <hr/>
 
 
 ### Flat diff (json):
-
-
 https://asciinema.org/a/QX73jQPihakaU9lIRlfkrvCZo
 
 
 ### Flat diff (yaml or yml):
-
 
 https://asciinema.org/a/5db67Vghj55M2XajizOCaJQYA
 
