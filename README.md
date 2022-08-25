@@ -17,30 +17,31 @@ $ pip install --user git+https://github.com/Gas159/python-project-lvl2.git
 
 <hr/>
 
-###Flat diff (json):
+
+### Flat diff (json):
 
 
 https://asciinema.org/a/QX73jQPihakaU9lIRlfkrvCZo
 
 
-###Flat diff (yaml or yml):
+### Flat diff (yaml or yml):
 
 
 https://asciinema.org/a/5db67Vghj55M2XajizOCaJQYA
 
 
-###Stylish recirsive files diff (json):
+### Stylish recirsive files diff (json):
 
 
 https://asciinema.org/a/zJwXxq6UlXLiZi7W0cjSfnQYt
 
 
-###Flat recursive files diff (yaml or yml):
+### Flat recursive files diff (yaml or yml):
 
 
 https://asciinema.org/a/mulsEh1pLD9IXbV3c0d7B2RN6
 
-###Json recirsive files diff (json):
+### Json recirsive files diff (json):
 
 [![asciicast](https://asciinema.org/a/yjGZ41oSU8Y8YJcjcWUOTUAiv.svg)](https://asciinema.org/a/yjGZ41oSU8Y8YJcjcWUOTUAiv)
 
