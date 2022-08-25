@@ -19,3 +19,4 @@ bar.py
 foo.py
 bazz.*
 test-coverage-tool
+github-actions-demo.yml
