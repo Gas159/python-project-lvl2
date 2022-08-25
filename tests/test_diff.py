@@ -16,7 +16,6 @@ def test_generate_diff_type():
 
 def test_generate_diff_recursive_stylish():
     stylish = open('tests/fixtures/result_stylish').read()
-    # print('!!!!!!!!!!!!!!!!!!! ...........',simply)
     assert generate_diff('tests/fixtures/recur_file1.json',
                          'tests/fixtures/recur_file2.json') == stylish
     assert generate_diff('tests/fixtures/recur_file1.yaml',
@@ -39,9 +38,3 @@ def test_generate_diff_recursive_json():
                          'tests/fixtures/recur_file2.json', 'json') == json
     assert generate_diff('tests/fixtures/recur_file1.yaml',
                          'tests/fixtures/recur_file2.yaml', 'json') == json
-
-# def test_gendiff():
-#     simply = open('tests/fixtures/result_json').read()
-#     print('!!!!!!!!!!!!!!!!!!! ...........', simply)
-#     assert main('tests/fixtures/file1.json',
-#                          'tests/fixtures/file2.json') == simply

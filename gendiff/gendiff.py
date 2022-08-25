@@ -2,10 +2,9 @@
 import json
 from pathlib import Path
 import yaml
-from pprint import pprint  # noqa
 
 from gendiff.formaters.json import to_json
-from gendiff.formaters.plain import plain
+from gendiff.formaters.plain import to_plain
 from gendiff.formaters.stylish import stylish
 
 
@@ -16,7 +15,7 @@ def generate_diff(source1, source2, format='stylish'):
     if format == 'stylish':
         return stylish(tree)
     elif format == 'plain':
-        return plain(tree)
+        return to_plain(tree)
     elif format == 'json':
         return to_json(tree)
     else:
@@ -35,8 +34,6 @@ def make_tree(data1: dict, data2: dict) -> dict:
     result = {}
     set1 = set(data1)
     set2 = set(data2)
-    # com_keys = set(set1 & set2)
-    # print(com_keys)
     add_keys = set(set2 - set1)
     del_keys = set(set1 - set2)
 
@@ -63,35 +60,3 @@ def make_tree(data1: dict, data2: dict) -> dict:
                                'value2': data2.get(key)}
 
     return result
-
-# '/home/gastello/python-project-lvl2/gendiff/test/fixtures/file1.json'
-#
-# q = generate_diff(
-#     '/home/gastello/python-project-lvl2/tests/fixtures/file1.json',
-#     '/home/gastello/python-project-lvl2/tests/fixtures/file2.json', plain)
-# print(q)
-#
-# q =generate_diff(
-# '/home/gastello/python-project-lvl2/tests/fixtures/file1.yaml',
-# '/home/gastello/python-project-lvl2/tests/fixtures/file2.yaml')
-# print(q)
-
-# q = generate_diff(
-#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.json',
-#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.json')
-# # print('\n\n')
-# # print(type(q), q)
-# print(q)
-
-# poetry run gendiff
-# /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file1.json
-# /home/gastello/python-project-lvl2/gendiff/tests/fixtures/file2.json
-# #
-# #
-# q = generate_diff(
-#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file1.yaml',
-#     '/home/gastello/python-project-lvl2/tests/fixtures/recur_file2.yaml',
-#     "plain")
-# # print('\n\n')
-# # print(type(q), q)
-# print(q)
