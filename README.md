@@ -34,7 +34,7 @@ https://asciinema.org/a/mulsEh1pLD9IXbV3c0d7B2RN6
 ###Json recirsive files diff (json):
 
 [![asciicast](https://asciinema.org/a/yjGZ41oSU8Y8YJcjcWUOTUAiv.svg)](https://asciinema.org/a/yjGZ41oSU8Y8YJcjcWUOTUAiv)
-https://asciinema.org/a/yjGZ41oSU8Y8YJcjcWUOTUAiv
+
 
 
 
