@@ -13,7 +13,7 @@ def generate_diff(source1, source2, format='stylish'):
     second = read_path(source2)
     tree = make_tree(first, second)
     if format == 'stylish':
-        return stylish(tree)
+        return stylish(tree) 
     elif format == 'plain':
         return to_plain(tree)
     elif format == 'json':
