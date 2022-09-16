@@ -3,7 +3,6 @@ def to_plain(diff_tree: dict) -> str:
     return result
 
 
-# flake8: noqa: 901
 def make_plain(data: dict, parent_key="") -> list:
     lines = []
     for elem in sorted(data.items()):
@@ -44,13 +43,13 @@ def conversion(data: list) -> str:
 def to_str(item: any) -> str:
     if isinstance(item, dict):
         return '[complex value]'
-    elif item == True:
-        return 'true'
-    elif item == False:
-        return 'false'
-    elif item == None:
-        return 'null'
     elif isinstance(item, str):
         return f"'{item}'"
+    elif item is True:
+        return 'true'
+    elif item is False:
+        return 'false'
+    elif item is None:
+        return 'null'
     else:
-        return item
+        return str(item)
