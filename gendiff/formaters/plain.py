@@ -47,7 +47,7 @@ def to_str(item: any) -> str:
         return f"'{item}'"
     elif item is True:
         return 'true'
-    elif item is False:
+    elif item is False and item == 0:
         return 'false'
     elif item is None:
         return 'null'
