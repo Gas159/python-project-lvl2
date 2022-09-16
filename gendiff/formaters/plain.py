@@ -47,7 +47,7 @@ def to_str(item: any) -> str:
     elif item == True:
         return 'true'
     elif item == False:
-        return '0'
+        return 'false'
     elif item == None:
         return 'null'
     elif isinstance(item, str):
