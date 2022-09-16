@@ -7,7 +7,6 @@ CHANGED = '    '
 COMMON = '    '
 
 
-# flake8: noqa: C901
 def stylish(diff_tree, depth=0, replacer='    '):
     lines = []
     res = ''
@@ -22,7 +21,6 @@ def stylish(diff_tree, depth=0, replacer='    '):
                 indent, key, val.get('value'), ADDED, depth))
 
         elif val.get("type") == "deleted":
-            # print("added", key, val)
             lines.append(make_row(
                 indent, key, val.get('value'), DELETED, depth))
 
@@ -45,7 +43,7 @@ def stylish(diff_tree, depth=0, replacer='    '):
     return '\n'.join(res)
 
 
-def convert(item):
+def to_str(item):
     if str(item) == "True":
         return "true"
     elif str(item) == 'None':
@@ -57,6 +55,6 @@ def convert(item):
 
 
 def make_row(indent, key, value, types='', depth=0):
-    return f'{indent}{types}{key}: {convert(value)}' \
+    return f'{indent}{types}{key}: {to_str(value)}' \
         if not isinstance(value, dict) \
         else f"{indent}{types}{key}: {stylish(value, depth + 1)}"

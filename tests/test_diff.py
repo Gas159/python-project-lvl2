@@ -6,7 +6,7 @@ STYLISH = 'stylish'
 PLAIN = 'plain'
 
 pytestmark = pytest.mark.parametrize(
-    'first_path, second_path, expected,formatter',
+    'first_path, second_path, expected, formatter',
     [
         ('tests/fixtures/file1.json', 'tests/fixtures/file2.json',
          'tests/fixtures/result_simply_json', STYLISH
