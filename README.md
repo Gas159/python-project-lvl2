@@ -6,6 +6,9 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/46234057334d78b3f3ee/test_coverage)](https://codeclimate.com/github/Gas159/python-project-lvl2/test_coverage)
 
 <hr/><hr/>
+<h1>Description:</h1>
+The `gendiff` utility finds differences between files and outputs them in 3 
+formats.
 
 
 ## Installation:
@@ -14,6 +17,14 @@ $ pip install --user git+https://github.com/Gas159/python-project-lvl2.git
 ```
 <hr/>
 
+## Usage:
+<p>Running:</p>
+
+```
+$ gendiff --format path/to/file1 path/to/file2
+```
+
+<hr/>
 
 ### Flat diff (json):
 https://asciinema.org/a/QX73jQPihakaU9lIRlfkrvCZo
