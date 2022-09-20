@@ -20,7 +20,7 @@ test1_cov:
 	poetry run pytest --cov=gendiff
 
 
-fast-check: # -s print -v\-vv verbose op
+fast-check: # -s print -v\-vv verbose op1
 	poetry install
 	poetry build
 	python3 -m pip install --user --force-reinstall dist/*.whl

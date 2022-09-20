@@ -7,9 +7,9 @@ def make_plain(data: dict, parent_key="") -> list:
     lines = []
     for elem in sorted(data.items()):
         key, value = elem
-        if not value.get('type') == 'unchanged':
+        if value.get('type') != 'unchanged':
 
-            type = value.get('type')
+            value_of_type = value.get('type')
             curent_key = key
 
             if parent_key:
@@ -17,19 +17,19 @@ def make_plain(data: dict, parent_key="") -> list:
             else:
                 key = curent_key
 
-            if type == "added":
+            if value_of_type == "added":
                 lines.append(f"Property '{key}' was added with value:"
                              f" {to_str(value.get('value'))}")
 
-            elif type == "deleted":
+            elif value_of_type == "deleted":
                 lines.append(f"Property '{key}' was removed")
 
-            elif type == "changed":
+            elif value_of_type == "changed":
                 lines.append(f"Property '{key}' was updated. From "
                              f"{to_str(value.get('value1'))} to "
                              f"{to_str(value.get('value2'))}")
 
-            elif type == "nested":
+            elif value_of_type == "nested":
                 nested_value = (make_plain(value.get('children'), key))
                 [lines.append(i) for i in nested_value]
 
@@ -43,13 +43,12 @@ def conversion(data: list) -> str:
 def to_str(item: any) -> str:
     if isinstance(item, dict):
         return '[complex value]'
-    elif isinstance(item, str):
+    if isinstance(item, str):
         return f"'{item}'"
-    elif item is True:
+    if item is True:
         return 'true'
-    elif item is False and item == 0:
+    if item is False and item == 0:
         return 'false'
-    elif item is None:
+    if item is None:
         return 'null'
-    else:
-        return str(item)
+    return str(item)
