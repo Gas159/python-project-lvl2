@@ -41,7 +41,7 @@ def read_path(file_path):
     except FileNotFoundError:
         print('File not found')
     except Exception:
-        print('File open errors!')
+        print('File open errorss!')
 
 
 def get_file_path(name):
