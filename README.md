@@ -31,26 +31,22 @@ $ gendiff --format path/to/file1 path/to/file2
 
 <a href="https://asciinema.org/a/QX73jQPihakaU9lIRlfkrvCZo" target="_blank"><img src="https://asciinema.org/a/QX73jQPihakaU9lIRlfkrvCZo.svg" /></a>
 
-https://asciinema.org/a/QX73jQPihakaU9lIRlfkrvCZo
 
 
 ### Flat diff (yaml or yml):
 
-https://asciinema.org/a/5db67Vghj55M2XajizOCaJQYA
 <a href="https://asciinema.org/a/5db67Vghj55M2XajizOCaJQYA" target="_blank"><img src="https://asciinema.org/a/5db67Vghj55M2XajizOCaJQYA.svg" /></a>
 
 
 ### Stylish recursive files diff (json):
 
 
-https://asciinema.org/a/zJwXxq6UlXLiZi7W0cjSfnQYt
 <a href="https://asciinema.org/a/zJwXxq6UlXLiZi7W0cjSfnQYt" target="_blank"><img src="https://asciinema.org/a/zJwXxq6UlXLiZi7W0cjSfnQYt.svg" /></a>
 
 
 ### Flat recursive files diff (yaml or yml):
 
 
-https://asciinema.org/a/mulsEh1pLD9IXbV3c0d7B2RN6
 <a href="https://asciinema.org/a/mulsEh1pLD9IXbV3c0d7B2RN6" target="_blank"><img src="https://asciinema.org/a/mulsEh1pLD9IXbV3c0d7B2RN6.svg" /></a>
 
 ### Json recursive files diff (json):

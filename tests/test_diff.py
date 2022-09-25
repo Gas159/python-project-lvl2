@@ -1,5 +1,5 @@
 import os.path
-import sys
+
 
 from gendiff import generate_diff
 import pytest
