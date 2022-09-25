@@ -1,4 +1,6 @@
 import os.path
+import sys
+
 from gendiff import generate_diff
 import pytest
 
@@ -41,7 +43,7 @@ def read_path(file_path):
         return None
     except:
         print('File open error!')
-        return None
+        sys.exit()
 
 
 def get_file_path(name):
