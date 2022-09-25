@@ -1,11 +1,11 @@
 def make_tree(data1: dict, data2: dict) -> dict:
     result = {}
-    set1 = set(data1)
-    set2 = set(data2)
-    add_keys = set(set2 - set1)
-    del_keys = set(set1 - set2)
+    collect_1 = set(data1)
+    collect_2 = set(data2)
+    add_keys = set(collect_2 - collect_1)
+    del_keys = set(collect_1 - collect_2)
 
-    for key in set1 | set2:
+    for key in collect_1 | collect_2:
         if key in add_keys:
             result[key] = {'type': 'added', 'value': data2.get(key)}
 

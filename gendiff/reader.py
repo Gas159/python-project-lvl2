@@ -1,21 +1,24 @@
-from pathlib import Path
+import os.path
 import json
 import yaml
 
 
 def read_path(file_path):
-    extension = get_extension(file_path)
+    root, extension = os.path.splitext(file_path)
     if extension == '.json':
-        with open(file_path, 'r', encoding='utf-8') as file:
-            res = json.load(file)
-            return res
+        return to_json(file_path)
     if extension in ('.yaml', '.yml'):
-        with open(file_path, 'r', encoding='utf-8') as file:
-            res = yaml.safe_load(file)
-            return res
-    else:
-        return None
+        return to_yaml(file_path)
+    raise FileNotFoundError
 
 
-def get_extension(item: str):
-    return Path(item).suffix
+def to_json(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        file = json.load(f)
+        return file
+
+
+def to_yaml(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        file = yaml.safe_load(f)
+        return file

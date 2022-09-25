@@ -7,36 +7,45 @@ CHANGED = '    '
 COMMON = '    '
 
 
-def stylish(diff_tree, depth=0, replacer='    '):
+def to_stylish(diff_tree):
+    """
+    Reformat a diff tree to style it.
+    """
+    result = built_stylish(diff_tree)
+    return result
+
+
+def built_stylish(tree: dict, depth=0, replacer='    '):
     lines = []
     res = ''
     indent = depth * replacer
 
-    for key, val in sorted(diff_tree.items()):
+    for key, val in sorted(tree.items()):
+
         if not isinstance(val, dict) or "type" not in val:
-            lines.append(make_row(indent, key, val, UNCHANGED, depth))
+            lines.append(built_line(indent, key, val, UNCHANGED, depth))
 
         elif val.get("type") == "added":
-            lines.append(make_row(
+            lines.append(built_line(
                 indent, key, val.get('value'), ADDED, depth))
 
         elif val.get("type") == "deleted":
-            lines.append(make_row(
+            lines.append(built_line(
                 indent, key, val.get('value'), DELETED, depth))
 
         elif val.get("type") == "unchanged":
-            lines.append(make_row(
+            lines.append(built_line(
                 indent, key, val.get('value'), UNCHANGED, depth))
 
         elif val.get("type") == "changed":
-            lines.append(make_row(
+            lines.append(built_line(
                 indent, key, val.get('value1'), DELETED, depth))
 
-            lines.append(make_row(
+            lines.append(built_line(
                 indent, key, val.get('value2'), ADDED, depth))
 
         elif val.get("type") == "nested":
-            lines.append(make_row(
+            lines.append(built_line(
                 indent, key, val.get('children'), COMMON, depth))
 
     res = chain('{', lines, [indent + '}'])
@@ -50,11 +59,10 @@ def to_str(item):
         return 'null'
     if str(item) == 'False':
         return 'false'
-
     return item
 
 
-def make_row(indent, key, value, types='', depth=0):
+def built_line(indent, key, value, types='', depth=0):
     return f'{indent}{types}{key}: {to_str(value)}' \
         if not isinstance(value, dict) \
-        else f"{indent}{types}{key}: {stylish(value, depth + 1)}"
+        else f"{indent}{types}{key}: {built_stylish(value, depth + 1)}"

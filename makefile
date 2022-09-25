@@ -14,6 +14,7 @@ lint1:
 	poetry run flake8 tests
 test:
 	poetry run pytest -vv
+	poetry run flake8 gendiff
 test_cov:
 	poetry run pytest --cov=gendiff tests/ --cov-report xml
 test1_cov:

@@ -1,43 +1,44 @@
 def to_plain(diff_tree: dict) -> str:
-    result = conversion(make_plain(diff_tree))
+    result = make_plain(diff_tree)
     return result
 
 
-def make_plain(data: dict, parent_key="") -> list:
-    lines = []
-    for elem in sorted(data.items()):
-        key, value = elem
-        if value.get('type') != 'unchanged':
+def make_plain(data: dict):
+    def inner(data, parent_key="") -> list:
+        lines = []
+        for elem in sorted(data.items()):
+            key, value = elem
+            if value.get('type') != 'unchanged':
 
-            value_of_type = value.get('type')
-            curent_key = key
+                value_of_type = value.get('type')
+                current_key = key
+                key = get_key(parent_key, current_key)
 
-            if parent_key:
-                key = f"{parent_key}.{curent_key}"
-            else:
-                key = curent_key
+                if value_of_type == "added":
+                    lines.append(f"Property '{key}' was added with value:"
+                                 f" {to_str(value.get('value'))}")
 
-            if value_of_type == "added":
-                lines.append(f"Property '{key}' was added with value:"
-                             f" {to_str(value.get('value'))}")
+                elif value_of_type == "deleted":
+                    lines.append(f"Property '{key}' was removed")
 
-            elif value_of_type == "deleted":
-                lines.append(f"Property '{key}' was removed")
+                elif value_of_type == "changed":
+                    lines.append(f"Property '{key}' was updated. From "
+                                 f"{to_str(value.get('value1'))} to "
+                                 f"{to_str(value.get('value2'))}")
 
-            elif value_of_type == "changed":
-                lines.append(f"Property '{key}' was updated. From "
-                             f"{to_str(value.get('value1'))} to "
-                             f"{to_str(value.get('value2'))}")
+                elif value_of_type == "nested":
+                    nested_values = (inner(value.get('children'), key))
+                    [lines.append(i) for i in nested_values]
 
-            elif value_of_type == "nested":
-                nested_value = (make_plain(value.get('children'), key))
-                [lines.append(i) for i in nested_value]
+        return lines
 
-    return lines
+    return '\n'.join(inner(data))
 
 
-def conversion(data: list) -> str:
-    return '\n'.join(data)
+def get_key(value, current_key):
+    if value:
+        return f"{value}.{current_key}"
+    return current_key
 
 
 def to_str(item: any) -> str:
