@@ -7,10 +7,12 @@ def read_path(file_path):
     extension = get_extension(file_path)
     if extension == '.json':
         with open(file_path, 'r') as f:
-            return json.load(f)
+            res = json.load(f)
+            return res
     if extension in ('.yaml', '.yml'):
         with open(file_path, 'r') as f:
-            return yaml.safe_load(f)
+            res = yaml.safe_load(f)
+            return res
 
 
 def get_extension(item: str):

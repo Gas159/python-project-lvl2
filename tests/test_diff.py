@@ -1,3 +1,4 @@
+import os.path
 from gendiff import generate_diff
 import pytest
 
@@ -5,40 +6,44 @@ JSON = 'json'
 STYLISH = 'stylish'
 PLAIN = 'plain'
 
-pytestmark = pytest.mark.parametrize(
+
+@pytest.mark.parametrize(
     'first_path, second_path, expected, formatter',
     [
-        ('tests/fixtures/file1.json', 'tests/fixtures/file2.json',
-         'tests/fixtures/result_simply_json', STYLISH
-         ),
-        ('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yaml',
-         'tests/fixtures/result_simply_json', STYLISH
-         ),
-        ('tests/fixtures/recur_file1.json', 'tests/fixtures/recur_file2.json',
-         'tests/fixtures/result_stylish', STYLISH
-         ),
-        ('tests/fixtures/recur_file1.yaml', 'tests/fixtures/recur_file2.yaml',
-         'tests/fixtures/result_stylish', STYLISH
-         ),
-
-        ('tests/fixtures/recur_file1.json', 'tests/fixtures/recur_file2.json',
-         'tests/fixtures/result_recur_json', JSON
-         ),
-        ('tests/fixtures/recur_file1.yaml', 'tests/fixtures/recur_file2.yaml',
-         'tests/fixtures/result_recur_json', JSON
-         ),
-        ('tests/fixtures/recur_file1.json', 'tests/fixtures/recur_file2.json',
-         'tests/fixtures/result_plain', PLAIN
-         ),
-        ('tests/fixtures/recur_file1.yaml', 'tests/fixtures/recur_file2.yaml',
-         'tests/fixtures/result_plain', PLAIN
-         )
+        ('file1.json', 'file2.json', 'result_simply_json', STYLISH),
+        ('file1.yaml', 'file2.yaml', 'result_simply_json', STYLISH),
+        ('recur_file1.json', 'recur_file2.json', 'result_stylish', STYLISH),
+        ('recur_file1.yaml', 'recur_file2.yaml', 'result_stylish', STYLISH),
+        ('recur_file1.json', 'recur_file2.json', 'result_recur_json', JSON),
+        ('recur_file1.yaml', 'recur_file2.yaml', 'result_recur_json', JSON),
+        ('recur_file1.json', 'recur_file2.json', 'result_plain', PLAIN),
+        ('recur_file1.yaml', 'recur_file2.yaml', 'result_plain', PLAIN)
     ]
 )
-
-
 def test_generate_diff(first_path: str, second_path: str, expected: str,
                        formatter: str):
-    result = open(expected).read()
-    assert generate_diff(first_path, second_path, formatter) == result
-    assert isinstance(generate_diff(first_path, second_path), str)
+    file_1 = get_file_path(first_path)
+    file_2 = get_file_path(second_path)
+    expected_file_path = get_file_path(expected)
+    expected_result = read_path(expected_file_path)
+
+    assert generate_diff(file_1, file_2, formatter) == expected_result
+    assert isinstance(generate_diff(file_1, file_2), str)
+
+
+def read_path(file_path):
+    try:
+        with open(file_path, 'r') as f:
+            res = f.read()
+            return res
+    except FileNotFoundError:
+        print('File not found')
+        return None
+    except:
+        print('File open error!')
+        return None
+
+
+def get_file_path(name):
+    path = os.path.join('tests/fixtures', name)
+    return path

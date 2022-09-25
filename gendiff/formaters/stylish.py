@@ -46,12 +46,12 @@ def stylish(diff_tree, depth=0, replacer='    '):
 def to_str(item):
     if str(item) == "True":
         return "true"
-    elif str(item) == 'None':
+    if str(item) == 'None':
         return 'null'
-    elif str(item) == 'False':
+    if str(item) == 'False':
         return 'false'
-    else:
-        return item
+
+    return item
 
 
 def make_row(indent, key, value, types='', depth=0):
