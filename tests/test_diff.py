@@ -40,10 +40,8 @@ def read_path(file_path):
             return res
     except FileNotFoundError:
         print('File not found')
-        return None
-    except:
+    except Exception:
         print('File open error!')
-        sys.exit()
 
 
 def get_file_path(name):
