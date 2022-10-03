@@ -10,8 +10,8 @@ def get_file(file_path):
 
 def parse(path, file_format):
     with open(path, 'r', encoding='utf-8') as f:
-        if file_format == 'json':
+        if file_format == '.json':
             return json.load(f)
-        if file_format in ('yml', 'yaml'):
+        if file_format in ('.yml', '.yaml'):
             return yaml.safe_load(f)
         raise FileNotFoundError('File or formatter not found')
