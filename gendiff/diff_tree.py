@@ -24,7 +24,7 @@ def make_tree(data1: dict, data2: dict) -> dict:
                 result[key] = {'type': 'unchanged', 'value': data1.get(key)}
 
             else:
-                result[key] = {'type': 'changed', 'value1': data1.get(key),
-                               'value2': data2.get(key)}
+                result[key] = {'type': 'changed', 'old': data1.get(key),
+                               'new': data2.get(key)}
 
     return result

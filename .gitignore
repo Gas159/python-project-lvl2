@@ -22,3 +22,4 @@ test-coverage-tool
 github-actions-demo.yml
 gendiff/gendiff.py
 test_foo.py
+my_test.py
