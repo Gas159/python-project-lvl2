@@ -1,6 +1,5 @@
 def to_plain(diff_tree: dict) -> str:
-    result = make_plain(diff_tree)
-    return result
+    return make_plain(diff_tree)
 
 
 def make_plain(data: dict):
