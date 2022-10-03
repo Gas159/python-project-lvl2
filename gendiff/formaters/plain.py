@@ -26,8 +26,8 @@ def make_plain(data: dict, parent_key=""):
 
             elif value_of_type == "nested":
                 nested_values = (make_plain(value.get('children'), key))
-                [lines.append(i) for i in nested_values]
-
+                # [lines.append(i) for i in nested_values]
+                lines.append(nested_values)
     return '\n'.join(lines)
 
 
