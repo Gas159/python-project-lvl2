@@ -39,10 +39,10 @@ def built_stylish(tree: dict, depth=0, replacer='    '):
 
         elif val.get("type") == "changed":
             lines.append(built_line(
-                indent, key, val.get('old'), DELETED, depth))
+                indent, key, val.get('value_old'), DELETED, depth))
 
             lines.append(built_line(
-                indent, key, val.get('new'), ADDED, depth))
+                indent, key, val.get('value_new'), ADDED, depth))
 
         elif val.get("type") == "nested":
             lines.append(built_line(

@@ -15,8 +15,8 @@
       },
       "setting3": {
         "type": "changed",
-        "value1": true,
-        "value2": null
+        "value_new": null,
+        "value_old": true
       },
       "setting4": {
         "type": "added",
@@ -34,8 +34,8 @@
             "children": {
               "wow": {
                 "type": "changed",
-                "value1": "",
-                "value2": "so much"
+                "value_new": "so much",
+                "value_old": ""
               }
             },
             "type": "nested"
@@ -58,8 +58,8 @@
     "children": {
       "baz": {
         "type": "changed",
-        "value1": "bas",
-        "value2": "bars"
+        "value_new": "bars",
+        "value_old": "bas"
       },
       "foo": {
         "type": "unchanged",
@@ -67,10 +67,10 @@
       },
       "nest": {
         "type": "changed",
-        "value1": {
+        "value_new": "str",
+        "value_old": {
           "key": "value"
-        },
-        "value2": "str"
+        }
       }
     },
     "type": "nested"
