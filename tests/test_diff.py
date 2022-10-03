@@ -34,4 +34,3 @@ def get_file_path(name: str) -> str:
     base_dir = os.path.dirname(os.path.abspath(__file__))
     path = os.path.join(base_dir, 'fixtures', name)
     return path
-
