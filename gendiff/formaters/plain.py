@@ -22,8 +22,8 @@ def make_plain(data: dict):
 
                 elif value_of_type == "changed":
                     lines.append(f"Property '{key}' was updated. From "
-                                 f"{to_str(value.get('value1'))} to "
-                                 f"{to_str(value.get('value2'))}")
+                                 f"{to_str(value.get('old'))} to "
+                                 f"{to_str(value.get('new'))}")
 
                 elif value_of_type == "nested":
                     nested_values = (inner(value.get('children'), key))
