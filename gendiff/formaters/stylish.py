@@ -11,8 +11,7 @@ def to_stylish(diff_tree):
     """
     Reformat a diff tree to style it.
     """
-    result = built_stylish(diff_tree)
-    return result
+    return built_stylish(diff_tree)
 
 
 def built_stylish(tree: dict, depth=0, replacer='    '):

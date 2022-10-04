@@ -41,10 +41,8 @@ def to_str(item: any) -> str:
         return '[complex value]'
     if isinstance(item, str):
         return f"'{item}'"
-    if item is True:
-        return 'true'
-    if item is False and item == 0:
-        return 'false'
+    if isinstance(item, bool):
+        return str(item).lower()
     if item is None:
         return 'null'
     return str(item)

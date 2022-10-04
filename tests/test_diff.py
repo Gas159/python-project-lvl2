@@ -24,7 +24,6 @@ def test_generate_diff(first_path: str, second_path: str, expected: str,
     expected_file_path = get_file_path(expected)
     with open(expected_file_path, 'r', encoding='utf-8') as f:
         expected_result = f.read()
-        # return expected_result
 
     assert generate_diff(file_1, file_2, formatter) == expected_result
     assert isinstance(generate_diff(file_1, file_2), str)
