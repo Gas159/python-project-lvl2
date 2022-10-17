@@ -1,7 +1,6 @@
 import os.path
-
-from gendiff import generate_diff
 import pytest
+from gendiff import generate_diff
 
 
 @pytest.mark.parametrize(
@@ -26,7 +25,6 @@ def test_generate_diff(first_path: str, second_path: str, expected: str,
         expected_result = f.read()
         assert generate_diff(file_1, file_2, formatter) == expected_result
         assert isinstance(generate_diff(file_1, file_2), str)
-
 
 
 def generate_fixture_path(name: str) -> str:
