@@ -3,15 +3,15 @@ import json
 import yaml
 
 
-def get_file(file_path):
+def get_file_content(file_path):
     _, extension = os.path.splitext(file_path)
-    return parse(file_path, extension)
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return parse(file, extension)
 
 
-def parse(path, file_format):
-    with open(path, 'r', encoding='utf-8') as f:
-        if file_format == '.json':
-            return json.load(f)
-        if file_format in ('.yaml', '.yml'):
-            return yaml.safe_load(f)
-        raise FileNotFoundError('File or formatter not found')
+def parse(file, file_format):
+    if file_format == '.json':
+        return json.load(file)
+    if file_format in ('.yaml', '.yml'):
+        return yaml.safe_load(file)
+    raise FileNotFoundError('File or formatter not found')

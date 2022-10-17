@@ -19,17 +19,17 @@ import pytest
 )
 def test_generate_diff(first_path: str, second_path: str, expected: str,
                        formatter: str):
-    file_1 = get_file_path(first_path)
-    file_2 = get_file_path(second_path)
-    expected_file_path = get_file_path(expected)
+    file_1 = generate_fixture_path(first_path)
+    file_2 = generate_fixture_path(second_path)
+    expected_file_path = generate_fixture_path(expected)
     with open(expected_file_path, 'r', encoding='utf-8') as f:
         expected_result = f.read()
+        assert generate_diff(file_1, file_2, formatter) == expected_result
+        assert isinstance(generate_diff(file_1, file_2), str)
 
-    assert generate_diff(file_1, file_2, formatter) == expected_result
-    assert isinstance(generate_diff(file_1, file_2), str)
 
 
-def get_file_path(name: str) -> str:
+def generate_fixture_path(name: str) -> str:
     base_dir = os.path.dirname(os.path.abspath(__file__))
     path = os.path.join(base_dir, 'fixtures', name)
     return path
