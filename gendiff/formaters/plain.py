@@ -1,8 +1,8 @@
 def to_plain(diff_tree: dict) -> str:
-    return make_plain(diff_tree)
+    return build_plain(diff_tree)
 
 
-def make_plain(data: dict, parent_key=""):
+def build_plain(data: dict, parent_key=""):
     lines = []
     for elem in sorted(data.items()):
         key, value = elem
@@ -10,7 +10,10 @@ def make_plain(data: dict, parent_key=""):
 
             value_of_type = value.get('type')
             current_key = key
-            key = get_key(parent_key, current_key)
+            if parent_key:
+                key = f'{parent_key}.{current_key}'
+            else:
+                key = current_key
 
             if value_of_type == "added":
                 lines.append(f"Property '{key}' was added with value:"
@@ -25,15 +28,9 @@ def make_plain(data: dict, parent_key=""):
                              f"{to_str(value.get('value_new'))}")
 
             elif value_of_type == "nested":
-                nested_values = (make_plain(value.get('children'), key))
+                nested_values = (build_plain(value.get('children'), key))
                 lines += [nested_values]
     return '\n'.join(lines)
-
-
-def get_key(value, current_key):
-    if value:
-        return f"{value}.{current_key}"
-    return current_key
 
 
 def to_str(item: any) -> str:

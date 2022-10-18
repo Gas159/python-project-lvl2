@@ -1,7 +1,3 @@
-# import json
-# from pprint import pprint
-
-
 def make_diff_tree(data1: dict, data2: dict) -> dict:
     result = {}
     collect_1 = set(data1)
@@ -32,15 +28,3 @@ def make_diff_tree(data1: dict, data2: dict) -> dict:
                                'value_new': data2.get(key)}
 
     return result
-
-# with open('/home/gas/projects/
-# python-project-lvl2/tests/fixtures/recur_file1.json', 'r') as f:
-#     file1 = json.load(f)
-#     with open('/home/gas/projects/
-#     python-project-lvl2/tests/fixtures/recur_file2.json', 'r') as f2:
-#         file2 = json.load(f2)
-#         pprint(make_diff_tree(file1,file2))
-
-# data1 = 'tests/fixtures/recur_file1.json'
-# data2 = 'tests/fixtures/recur_file2.json'
-# print( make_diff_tree(data1,data2))
