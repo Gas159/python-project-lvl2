@@ -53,16 +53,16 @@ def to_str(item, depth=0):
     if str(item) == 'None':
         return 'null'
     if isinstance(item, dict):
-        list_str = ['{']
+        lines = ['{']
         for key, nested_value in item.items():
             if isinstance(nested_value, dict):
                 new_value = to_str(nested_value, depth + 1)
-                list_str.append(f"{'    ' * depth}    {key}: {new_value}")
+                lines.append(f"{'    ' * depth}    {key}: {new_value}")
             else:
-                list_str.append(f"{'    ' * depth}    {key}: {nested_value}")
-        list_str.append(f'{"    " * depth}}}')
+                lines.append(f"{'    ' * depth}    {key}: {nested_value}")
+        lines.append(f'{"    " * depth}}}')
 
-        return '\n'.join(list_str)
+        return '\n'.join(lines)
     return item
 
 

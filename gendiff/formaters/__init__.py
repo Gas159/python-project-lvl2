@@ -3,11 +3,11 @@ from gendiff.formaters.plain import to_plain
 from gendiff.formaters.stylish import to_stylish
 
 
-def build_format_diff_tree(tree: dict, name_format: str, ) -> object:
-    if name_format == 'stylish':
+def build_format_diff_tree(tree: dict, format_name: str, ) -> object:
+    if format_name == 'stylish':
         return to_stylish(tree)
-    if name_format == 'plain':
+    if format_name == 'plain':
         return to_plain(tree)
-    if name_format == 'json':
+    if format_name == 'json':
         return to_json(tree)
-    raise ValueError(f'{name_format} notFoundError ')
+    raise ValueError(f'{format_name} notFoundError ')
